@@ -5,7 +5,7 @@ public class PersonalAccount {
     private double balance;
     private ArrayList<Amount> transactions;
     public PersonalAccount(int accountNumber, String accountHolder){
-        transactions = new ArrayList<Amount>();
+        transactions = new ArrayList <Amount>();
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
         this.balance = 0;
@@ -32,5 +32,11 @@ public class PersonalAccount {
         for (int i = 0; i < transactions.size(); i++){
             System.out.println(transactions.get(i).getInfo());
         }
+    }
+    public int getAccountNumber(){
+        return accountNumber;
+    }
+    public String getAccountHolder(){
+        return accountHolder;
     }
 }
