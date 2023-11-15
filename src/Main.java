@@ -1,19 +1,22 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         PersonalAccount p1 = new PersonalAccount(9090, "p1");
-        p1.deposit(900);
-        p1.deposit(778);
-        p1.withdraw(1600);
-        p1.withdraw(100);
-        System.out.println("Balance is: " + p1.getBalance() + "$.");
-        System.out.println("Transactions history: ");
+        try {
+            p1.deposit(1900);
+            System.out.println("Balance is: " + p1.getBalance() + "$.");
+            p1.withdraw(1000);
+            System.out.println("Balance is: " + p1.getBalance() + "$.");
+            p1.deposit(900);
+            System.out.println("Balance is: " + p1.getBalance() + "$.");
+            p1.withdraw(2000);
+            System.out.println("Balance is: " + p1.getBalance() + "$.");
+
+        } catch (InsufficientBalanceException e) {
+            System.out.println(e.toString());
+        }
+        System.out.println("\nTransactions history: ");
         p1.printTransactionHistory();
-        System.out.println("Account number is: " + p1.getAccountNumber());
-        System.out.println("Account holder is: " + p1.getAccountHolder());
-        p1.deposit(78);
-        p1.deposit(200);
         System.out.println("Balance is: " + p1.getBalance() + "$.");
-        System.out.println("Transactions history: ");
-        p1.printTransactionHistory();
+
     }
 }

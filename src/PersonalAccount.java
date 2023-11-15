@@ -15,15 +15,16 @@ public class PersonalAccount {
         Amount amount1 = new Amount(amount, "deposit");
         transactions.add(amount1);
     }
-    public void withdraw(double amount){
+    public void withdraw(double amount) throws Exception{
         if (balance > amount){
             balance = balance - amount;
             Amount amount2 = new Amount(amount, "withdraw");
             transactions.add(amount2);
         }
         else {
-            System.out.println("not enough balance");
+            throw new InsufficientBalanceException("Not enough balance");
         }
+
     }
     public double getBalance(){
         return balance;
